@@ -23,6 +23,8 @@
         }
 		
  
+        if (options.simpleTapCapture) options.doubleTapCapture = false;
+        
         return this.each(function() {
 
             var startTime = null,
