@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+        
+        <title>swipe test</title>
+
+
+        <script src="jquery-1.4.4.min.js" type="application/javascript" charset="utf-8"></script>
+        <script src="jquery.swipe.js" type="application/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				font: 10px Arial, sans-serif;
+				margin: 0;
+			}
+			#zone-test {
+				position: absolute;
+			    height: 100%;
+				width: 100%;
+				
+				background: #cccc00;
+			}
+ 
+			
+		</style>
+        <script type="text/javascript">
+         $(document).ready(function() {
+         	
+         	$("#zone-test").swipe(
+            function(e, data){
+            	 
+                console.log('type:'+data.type+' deltaX:'+data.deltaX+' deltaY:'+data.deltaY+' distance:'+
+                    data.distance+' delay:'+data.delay+' direction:'+data.direction  );
+                    
+                    switch (data.type){
+                    
+                    case ('direction'):
+                       $("#zone-test").append('direction '+data.direction+'<br />');
+                    break;
+                    case ('doubletap'):
+                       $("#zone-test").append('doubletap <br />');
+                    break;
+                    case ('longtap'):
+                       $("#zone-test").append('longtap <br />');
+                    break;
+                    case ('simpletap'):
+                       $("#zone-test").append('simpletap <br />');
+                    break;
+                    	
+                    }	
+                    
+                    
+            }, {
+            	
+                swipeCapture: true,
+                longTapCapture: true,
+                doubleTapCapture: true,
+                simpleTapCapture: true
+                 
+            }
+            );
+    
+    
+         });
+
+
+ 
+
+        </script>
+    </head>
+    <body>
+    
+        <div id="zone-test">
+         Swipe example : touch screen ... <br />
+         
+         
+            
+        </div>
+    </body>
+</html>
